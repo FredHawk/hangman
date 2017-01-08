@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hangman!</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./hangman.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hangman!</h1>
+    <form action="">
+      <label for="get-guess">Guess a letter:</label>
+      <input class="get-guess" type="text" autofocus>
+      <input type="button" onclick="checkLetter()" value="Guess">
+    </form>
+    <p class="guess"></p>
+    <p class="result"></p>
+    <p class="lives"></p>
+    <canvas class="figure" width="200" height="200"></canvas>
+    <p class="notice"></p>
+  </div>
+<script src="./hangman.js">
+</script>
+</body>
+</html>

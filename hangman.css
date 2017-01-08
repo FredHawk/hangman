@@ -1,0 +1,32 @@
+body {
+  font-family: 'Roboto', sans-serif; 
+  color: skyblue;
+  font-size: 16px;
+  background: darkslateblue;
+}
+.container {
+  width: 500px;
+  margin: 0 auto;
+}
+.get-guess {
+  background: darkslateblue;
+  border: solid 1px skyblue;
+  border-radius: 3px;
+  padding: 0.3rem;
+  color: skyblue;
+  font-size: 1.2rem;
+}
+label {
+  font-size: 1.2rem;
+}
+input[type=button] {
+  color: darkslateblue;
+  background: skyblue;
+  border: none;
+  padding: 0.3rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+.notice {
+  font-size: 1.5rem;
+}
