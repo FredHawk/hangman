@@ -41,51 +41,372 @@ const drawHangman = function (wrongGuesses) {
   // This function will draw the hanged man one limb at a time based on how many wrong guesses have been made.
   // It will take the current wrong guess number and draw that many parts.
   // Parts are hill, pole, crosspole, rope, head, body, arms, legs. In total 8. So when 8 guesses have been made the man is hung.
-  ctx.lineWidth = 4;
-  ctx.strokeStyle = "mediumseagreen";
   if (wrongGuesses === 7) {
     // Hill
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "mediumseagreen";
     ctx.arc(55, 200, 50, Math.PI, 0, false);
+    ctx.stroke();
+    ctx.closePath();
+    
   }
   if (wrongGuesses === 6) {
     // Pole
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "sienna";
     ctx.moveTo(55,50);
     ctx.lineTo(55,150);
+    ctx.stroke();
+    ctx.closePath();
   }
   if (wrongGuesses === 5) {
     // Crossbar
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "sienna";
     ctx.moveTo(55,50);
     ctx.lineTo(125,50);
+    ctx.stroke();
+    ctx.closePath();
   }
   if (wrongGuesses === 4) {
     // Rope
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "lightgrey";
     ctx.moveTo(125,50);
     ctx.lineTo(125,95);
+    ctx.stroke();
+    ctx.closePath();
   }
   if (wrongGuesses === 3) {
     // Head
-    ctx.strokeRect(115, 95, 20, 20);
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(139,109);
+    ctx.arc(125, 109, 14,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Eyes
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "slateblue";
+    ctx.moveTo(121,104);
+    ctx.arc(120, 104, 1,0,2*Math.PI);
+    ctx.moveTo(129, 104);
+    ctx.arc(130, 104, 1,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+    // Nose
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(125, 109);
+    ctx.arc(125, 109, 1,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+    // Mouth
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(130, 114);
+    ctx.arc(125, 114, 5,0,1*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+
   }
   if (wrongGuesses === 2) {
+    ctx.clearRect(0, 0, width, height);
+    // Hill
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "mediumseagreen";
+    ctx.arc(55, 200, 50, Math.PI, 0, false);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Pole
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "sienna";
+    ctx.moveTo(55,50);
+    ctx.lineTo(55,150);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Crossbar
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "sienna";
+    ctx.moveTo(55,50);
+    ctx.lineTo(125,50);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Rope
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "lightgrey";
+    ctx.moveTo(125,50);
+    ctx.lineTo(125,95);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Head
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(139,109);
+    ctx.arc(125, 109, 14,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Eyes
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "slateblue";
+    ctx.moveTo(121,104);
+    ctx.arc(120, 104, 1,0,2*Math.PI);
+    ctx.moveTo(129, 104);
+    ctx.arc(130, 104, 1,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+    // Nose
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(125, 109);
+    ctx.arc(125, 109, 1,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+    // Mouth
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(130, 114);
+    ctx.arc(125, 114, 5,0,1*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+
     // Body
-    ctx.moveTo(125,115);
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "mediumpurple";
+    ctx.moveTo(125,123);
     ctx.lineTo(125,145);
+    ctx.stroke();
+    ctx.closePath();
+
+    
+
   }
   if (wrongGuesses === 1) {
+    ctx.clearRect(0, 0, width, height);
+    // Hill
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "mediumseagreen";
+    ctx.arc(55, 200, 50, Math.PI, 0, false);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Pole
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "sienna";
+    ctx.moveTo(55,50);
+    ctx.lineTo(55,150);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Crossbar
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "sienna";
+    ctx.moveTo(55,50);
+    ctx.lineTo(125,50);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Rope
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "lightgrey";
+    ctx.moveTo(125,50);
+    ctx.lineTo(125,95);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Head
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(139,109);
+    ctx.arc(125, 109, 14,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Eyes
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "slateblue";
+    ctx.moveTo(121,104);
+    ctx.arc(120, 104, 1,0,2*Math.PI);
+    ctx.moveTo(129, 104);
+    ctx.arc(130, 104, 1,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+    // Nose
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(125, 109);
+    ctx.arc(125, 109, 1,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+    // Mouth
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(130, 114);
+    ctx.lineTo(120, 114);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Body
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "mediumpurple";
+    ctx.moveTo(125,123);
+    ctx.lineTo(125,145);
+    ctx.stroke();
+    ctx.closePath();
+
     // Arms
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "mediumpurple";
     ctx.moveTo(105,125);
     ctx.lineTo(125,135);
     ctx.moveTo(145,125);
     ctx.lineTo(125,135);
+    ctx.stroke();
+    ctx.closePath();
   }
   if (wrongGuesses === 0) {
+    ctx.clearRect(0, 0, width, height);
+    // Hill
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "mediumseagreen";
+    ctx.arc(55, 200, 50, Math.PI, 0, false);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Pole
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "sienna";
+    ctx.moveTo(55,50);
+    ctx.lineTo(55,150);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Crossbar
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "sienna";
+    ctx.moveTo(55,50);
+    ctx.lineTo(125,50);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Rope
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "lightgrey";
+    ctx.moveTo(125,50);
+    ctx.lineTo(125,95);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Head
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(139,109);
+    ctx.arc(125, 109, 14,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Eyes
+    ctx.beginPath();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.moveTo(118, 102);
+    ctx.lineTo(123, 106);
+    ctx.moveTo(123, 102);
+    ctx.lineTo(118, 106);
+    ctx.moveTo(126, 102);
+    ctx.lineTo(131, 106);
+    ctx.moveTo(131, 102);
+    ctx.lineTo(126, 106);
+    ctx.stroke();
+    ctx.closePath();
+    
+    // Nose
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(125, 109);
+    ctx.arc(125, 109, 1,0,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Mouth
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "antiquewhite";
+    ctx.moveTo(120, 119);
+    ctx.arc(125, 119, 5,1*Math.PI,2*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+
+    // Body
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "mediumpurple";
+    ctx.moveTo(125,123);
+    ctx.lineTo(125,145);
+    ctx.stroke();
+    ctx.closePath();
+    
+    // Arms
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "mediumpurple";
+    ctx.moveTo(105,155);
+    ctx.lineTo(125,135);
+    ctx.moveTo(145,155);
+    ctx.lineTo(125,135);
+    ctx.stroke();
+    ctx.closePath();
+
     // Legs
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "mediumpurple";
     ctx.moveTo(125,145);
-    ctx.lineTo(105,175);
+    ctx.lineTo(115,175);
     ctx.moveTo(125,145);
-    ctx.lineTo(145,175);
+    ctx.lineTo(135,175);
+    ctx.stroke();
+    ctx.closePath();
   }
-  ctx.stroke();
 }
 
 const validateLetter = function (inputLetter) {
@@ -143,6 +464,8 @@ const noticeElement = document.querySelector(".notice");
 const guessForm = document.querySelector(".get-guess");
 const canvas = document.querySelector(".figure");
 const ctx = canvas.getContext("2d");
+const width = canvas.width;
+const height = canvas.height;
 const livesElement = document.querySelector(".lives");
 
 // messages object
