@@ -418,6 +418,15 @@ const validateLetter = function (inputLetter) {
   }
 }
 
+const hasBeenGuessed = function (guess, guessedLetters) {
+  guessedLetters.join('');
+  if(guessedLetters.includes(guess)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 const updateGameState = function (guess, word, answerArray) {
   // Update answerArray and return a number showing how many
   // times the guess appears in the word so remainingLetters
@@ -459,6 +468,8 @@ let answerArray = setupAnswerArray(word);
 let remainingLetters = word.length;
 // Amount of wrong guesses allowed
 let wrongGuesses = 8;
+// Array of the guessed letters
+const guessedLetters = [];
 const resultElement = document.querySelector(".result");
 const noticeElement = document.querySelector(".notice");
 const guessForm = document.querySelector(".get-guess");
@@ -475,6 +486,7 @@ const messages = {
   pickLetter: `Guess a letter, or click Cancel to stop playing.`,
   singleLetter: `Please enter a single letter. Try again.`,
   onlyLetters: `Only letters are allowed. Try again.`,
+  alreadyGuessed: `You have already guessed that. Try again.`,
 }
 
 // Function to run when button is clicked.
@@ -488,6 +500,8 @@ let checkLetter = function () {
       noticeElement.innerHTML = messages.singleLetter;
     } else if (validateLetter(guess) === false) {
       noticeElement.innerHTML = messages.onlyLetters;
+    } else if (hasBeenGuessed(guess, guessedLetters)) {
+      noticeElement.textContent = messages.alreadyGuessed;
     } else {
       noticeElement.innerHTML = "";
       // Check if the guessed letter is in the word or not.
@@ -496,6 +510,7 @@ let checkLetter = function () {
       showPlayerProgress(answerArray);
       drawHangman(wrongGuesses);
     }
+    guessedLetters.push(guess);
     // Display lives left
     livesElement.innerHTML = ` Lives left: ${wrongGuesses}`;
     // Reset the form input so it is ready for a new letter.
