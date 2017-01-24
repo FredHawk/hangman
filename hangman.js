@@ -18,8 +18,6 @@ const pickWord = function (word) {
 }
 
 const setupAnswerArray = function (word) {
-  // Return the answer array
-  // Setup initial answerArrays state.
   let array = []; 
   for (let i = 0; i < word.length; i++) {
     array[i] = "_";
@@ -28,12 +26,10 @@ const setupAnswerArray = function (word) {
 }
 
 const showPlayerProgress = function (answerArray) {
-  // Use alert to show the player their progress
   resultElement.innerHTML = `${answerArray.join(" ")}`;
 }
 
 const getGuess = function () {
-  // Use prompt to get a guess
   return guessForm.value.toLowerCase();
 }
 
@@ -428,30 +424,22 @@ const hasBeenGuessed = function (guess, guessedLetters) {
 }
 
 const updateGameState = function (guess, word, answerArray) {
-  // Update answerArray and return a number showing how many
-  // times the guess appears in the word so remainingLetters
-  // can be updated
-  // Guess was 1 letter, checking if it is in the secret word.
   let wrongLetter = true;
   for (let j = 0; j < word.length; j++) {
     if (word[j] === guess && answerArray[j] === "_") {
-      // If it is in the word change answerArray state to reflect that.
       answerArray[j] = guess;
       wrongLetter = false;
-      // Decrement the amount of letters remaining to be guessed.
       remainingLetters--;
     }
     
   }
   if (wrongLetter === true) {
-    // Decrement the wrong guesses.
     wrongGuesses--;
   }
   return answerArray;
 }
 
 const showAnswerAndCongratulatePlayer = function(answerArray) {
-  // Use alert to show the answer and congratulate the player
   if (wrongGuesses === 0) {
     resultElement.innerHTML = messages.lose;
   }
@@ -461,14 +449,10 @@ const showAnswerAndCongratulatePlayer = function(answerArray) {
 }
 
 // VARIABLES
-// Pick a random word.
 let word = pickWord(words); 
 let answerArray = setupAnswerArray(word);
-// Setup how many letters remain to guess.
 let remainingLetters = word.length;
-// Amount of wrong guesses allowed
 let wrongGuesses = 8;
-// Array of the guessed letters
 const guessedLetters = [];
 const resultElement = document.querySelector(".result");
 const noticeElement = document.querySelector(".notice");
@@ -479,7 +463,6 @@ const width = canvas.width;
 const height = canvas.height;
 const livesElement = document.querySelector(".lives");
 
-// messages object
 const messages = {
   win: `Good job! The answer was ${word.toUpperCase()}.`,
   lose: `Sorry buddy but you failed, the word was ${word.toUpperCase()}.`,
@@ -489,14 +472,10 @@ const messages = {
   alreadyGuessed: `You have already guessed that. Try again.`,
 }
 
-// Function to run when button is clicked.
 let checkLetter = function () {
   if (remainingLetters > 0 && wrongGuesses > 0) {
-    // Get the letter from form.
     let guess = getGuess();
-    // Check so guess isn't nothing and that it is a single letter.
     if (guess === null || guess.length !== 1) {
-      // If it is nothing or not a single letter then say that it should only be a single letter.
       noticeElement.innerHTML = messages.singleLetter;
     } else if (validateLetter(guess) === false) {
       noticeElement.innerHTML = messages.onlyLetters;
@@ -504,19 +483,14 @@ let checkLetter = function () {
       noticeElement.textContent = messages.alreadyGuessed;
     } else {
       noticeElement.innerHTML = "";
-      // Check if the guessed letter is in the word or not.
       let correctGuesses = updateGameState(guess, word, answerArray);
-      // Update and show if it was in the word or not.
       showPlayerProgress(answerArray);
       drawHangman(wrongGuesses);
     }
     guessedLetters.push(guess);
-    // Display lives left
     livesElement.innerHTML = ` Lives left: ${wrongGuesses}`;
-    // Reset the form input so it is ready for a new letter.
     guessForm.value = "";
   }
-  // Checks if player has won or not.
   showAnswerAndCongratulatePlayer(answerArray);
 }
 document.body.onkeydown = function(e) {
