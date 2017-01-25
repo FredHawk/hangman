@@ -26,7 +26,7 @@ const setupAnswerArray = function (word) {
 }
 
 const showPlayerProgress = function (answerArray) {
-  resultElement.innerHTML = `${answerArray.join(" ")}`;
+  resultElement.textContent = `${answerArray.join(" ")}`;
 }
 
 const getGuess = function () {
@@ -34,9 +34,6 @@ const getGuess = function () {
 }
 
 const drawHangman = function (wrongGuesses) {
-  // This function will draw the hanged man one limb at a time based on how many wrong guesses have been made.
-  // It will take the current wrong guess number and draw that many parts.
-  // Parts are hill, pole, crosspole, rope, head, body, arms, legs. In total 8. So when 8 guesses have been made the man is hung.
   if (wrongGuesses === 7) {
     // Hill
     ctx.beginPath();
@@ -45,7 +42,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(55, 200, 50, Math.PI, 0, false);
     ctx.stroke();
     ctx.closePath();
-    
   }
   if (wrongGuesses === 6) {
     // Pole
@@ -86,7 +82,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(125, 109, 14,0,2*Math.PI);
     ctx.stroke();
     ctx.closePath();
-
     // Eyes
     ctx.beginPath();
     ctx.lineWidth = 2;
@@ -113,7 +108,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(125, 114, 5,0,1*Math.PI);
     ctx.stroke();
     ctx.closePath();
-
   }
   if (wrongGuesses === 2) {
     ctx.clearRect(0, 0, width, height);
@@ -124,7 +118,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(55, 200, 50, Math.PI, 0, false);
     ctx.stroke();
     ctx.closePath();
-
     // Pole
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -133,7 +126,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(55,150);
     ctx.stroke();
     ctx.closePath();
-
     // Crossbar
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -142,7 +134,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(125,50);
     ctx.stroke();
     ctx.closePath();
-
     // Rope
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -151,7 +142,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(125,95);
     ctx.stroke();
     ctx.closePath();
-
     // Head
     ctx.beginPath();
     ctx.lineWidth = 2;
@@ -160,7 +150,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(125, 109, 14,0,2*Math.PI);
     ctx.stroke();
     ctx.closePath();
-
     // Eyes
     ctx.beginPath();
     ctx.lineWidth = 2;
@@ -187,7 +176,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(125, 114, 5,0,1*Math.PI);
     ctx.stroke();
     ctx.closePath();
-
     // Body
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -196,9 +184,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(125,145);
     ctx.stroke();
     ctx.closePath();
-
-    
-
   }
   if (wrongGuesses === 1) {
     ctx.clearRect(0, 0, width, height);
@@ -209,7 +194,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(55, 200, 50, Math.PI, 0, false);
     ctx.stroke();
     ctx.closePath();
-
     // Pole
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -218,7 +202,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(55,150);
     ctx.stroke();
     ctx.closePath();
-
     // Crossbar
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -227,7 +210,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(125,50);
     ctx.stroke();
     ctx.closePath();
-
     // Rope
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -236,7 +218,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(125,95);
     ctx.stroke();
     ctx.closePath();
-
     // Head
     ctx.beginPath();
     ctx.lineWidth = 2;
@@ -245,7 +226,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(125, 109, 14,0,2*Math.PI);
     ctx.stroke();
     ctx.closePath();
-
     // Eyes
     ctx.beginPath();
     ctx.lineWidth = 2;
@@ -272,7 +252,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(120, 114);
     ctx.stroke();
     ctx.closePath();
-
     // Body
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -281,7 +260,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(125,145);
     ctx.stroke();
     ctx.closePath();
-
     // Arms
     ctx.beginPath();
     ctx.lineWidth = 2;
@@ -302,7 +280,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(55, 200, 50, Math.PI, 0, false);
     ctx.stroke();
     ctx.closePath();
-
     // Pole
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -311,7 +288,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(55,150);
     ctx.stroke();
     ctx.closePath();
-
     // Crossbar
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -320,7 +296,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(125,50);
     ctx.stroke();
     ctx.closePath();
-
     // Rope
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -329,7 +304,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(125,95);
     ctx.stroke();
     ctx.closePath();
-
     // Head
     ctx.beginPath();
     ctx.lineWidth = 2;
@@ -338,7 +312,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(125, 109, 14,0,2*Math.PI);
     ctx.stroke();
     ctx.closePath();
-
     // Eyes
     ctx.beginPath();
     ctx.lineWidth = 1;
@@ -353,7 +326,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(126, 106);
     ctx.stroke();
     ctx.closePath();
-    
     // Nose
     ctx.beginPath();
     ctx.lineWidth = 2;
@@ -362,7 +334,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(125, 109, 1,0,2*Math.PI);
     ctx.stroke();
     ctx.closePath();
-
     // Mouth
     ctx.beginPath();
     ctx.lineWidth = 2;
@@ -371,7 +342,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.arc(125, 119, 5,1*Math.PI,2*Math.PI);
     ctx.stroke();
     ctx.closePath();
-
     // Body
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -380,7 +350,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(125,145);
     ctx.stroke();
     ctx.closePath();
-    
     // Arms
     ctx.beginPath();
     ctx.lineWidth = 2;
@@ -391,7 +360,6 @@ const drawHangman = function (wrongGuesses) {
     ctx.lineTo(125,135);
     ctx.stroke();
     ctx.closePath();
-
     // Legs
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -412,6 +380,20 @@ const validateLetter = function (inputLetter) {
   } else {
     return false;
   }
+}
+
+function resetGame() {
+  word = pickWord(words); 
+  answerArray = setupAnswerArray(word);
+  remainingLetters = word.length;
+  wrongGuesses = 8;
+  guessedLetters = [];
+  guessed.textContent = '';
+  livesElement.textContent = '';
+  resultElement.textContent = '';
+  container.removeChild(reset);
+  ctx.clearRect(0,0, width, height);
+  guessForm.focus();
 }
 
 const hasBeenGuessed = function (guess, guessedLetters) {
@@ -442,10 +424,12 @@ const updateGameState = function (guess, word, answerArray) {
 
 const showAnswerAndCongratulatePlayer = function(answerArray) {
   if (wrongGuesses === 0) {
-    resultElement.innerHTML = messages.lose;
+    resultElement.textContent = messages.lose;
+    container.appendChild(reset);
   }
   if(remainingLetters === 0) {
-    resultElement.innerHTML = messages.win;
+    resultElement.textContent = messages.win;
+    container.appendChild(reset);
   }
 }
 
@@ -454,16 +438,22 @@ let word = pickWord(words);
 let answerArray = setupAnswerArray(word);
 let remainingLetters = word.length;
 let wrongGuesses = 8;
-const guessedLetters = [];
+let guessedLetters = [];
 const resultElement = document.querySelector(".result");
 const noticeElement = document.querySelector(".notice");
 const guessed = document.querySelector(".guess");
 const guessForm = document.querySelector(".get-guess");
+const container = document.querySelector(".container");
+const restart = document.querySelector(".reset");
 const canvas = document.querySelector(".figure");
 const ctx = canvas.getContext("2d");
 const width = canvas.width;
 const height = canvas.height;
 const livesElement = document.querySelector(".lives");
+const reset = document.createElement("button");
+reset.classList.add("reset");
+reset.textContent = `Restart Game`;
+reset.onclick = resetGame;
 
 const messages = {
   win: `Good job! The answer was ${word.toUpperCase()}.`,
@@ -478,20 +468,19 @@ let checkLetter = function () {
   if (remainingLetters > 0 && wrongGuesses > 0) {
     let guess = getGuess();
     if (guess === null || guess.length !== 1) {
-      noticeElement.innerHTML = messages.singleLetter;
+      noticeElement.textContent = messages.singleLetter;
     } else if (validateLetter(guess) === false) {
-      noticeElement.innerHTML = messages.onlyLetters;
+      noticeElement.textContent = messages.onlyLetters;
     } else if (hasBeenGuessed(guess, guessedLetters)) {
       noticeElement.textContent = messages.alreadyGuessed;
     } else {
-      noticeElement.innerHTML = "";
+      noticeElement.textContent = "";
       let correctGuesses = updateGameState(guess, word, answerArray);
       showPlayerProgress(answerArray);
       drawHangman(wrongGuesses);
     }
-    console.log(guessedLetters);
     guessed.textContent = `You have already guessed ${guessedLetters.join(", ").toUpperCase()}`;
-    livesElement.innerHTML = ` Lives left: ${wrongGuesses}`;
+    livesElement.textContent = ` Lives left: ${wrongGuesses}`;
     guessForm.value = "";
   }
   showAnswerAndCongratulatePlayer(answerArray);
@@ -502,3 +491,4 @@ document.body.onkeydown = function(e) {
     checkLetter();
   }
 }
+
