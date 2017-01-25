@@ -419,6 +419,7 @@ const hasBeenGuessed = function (guess, guessedLetters) {
   if(guessedLetters.includes(guess)) {
     return true;
   } else {
+    guessedLetters.push(guess);
     return false;
   }
 }
@@ -456,6 +457,7 @@ let wrongGuesses = 8;
 const guessedLetters = [];
 const resultElement = document.querySelector(".result");
 const noticeElement = document.querySelector(".notice");
+const guessed = document.querySelector(".guess");
 const guessForm = document.querySelector(".get-guess");
 const canvas = document.querySelector(".figure");
 const ctx = canvas.getContext("2d");
@@ -487,7 +489,8 @@ let checkLetter = function () {
       showPlayerProgress(answerArray);
       drawHangman(wrongGuesses);
     }
-    guessedLetters.push(guess);
+    console.log(guessedLetters);
+    guessed.textContent = `You have already guessed ${guessedLetters.join(", ").toUpperCase()}`;
     livesElement.innerHTML = ` Lives left: ${wrongGuesses}`;
     guessForm.value = "";
   }
